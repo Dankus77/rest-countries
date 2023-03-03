@@ -89,7 +89,32 @@ color: hsl(0, 0%, 100%);
     width: 200px;
   }
   
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .btn {
+    background-color: hsl(207, 26%, 17%);
+    padding: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    border: 2px solid hsl(207, 26%, 17%);
+    border-radius: 4px;
+    transition: background-color 0.2s;
+  }
   
+  .btn:hover {
+    background-color: #fff;
+    color: hsl(207, 26%, 17%);
+  }
+
+  .btn-light {
+    background-color: hsl(209, 23%, 22%);
+    border: 2px solid hsl(209, 23%, 22%);
+  }
   
   @media (min-width: 640px) {
     .grid {
