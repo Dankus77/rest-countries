@@ -1,15 +1,24 @@
 import React from 'react';
-import Country from './components/Countries/Countries';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import Country from './components/Countries/Country';
+import Countries from './components/Countries/Countries';
 import Header from './components/Header/Header';
 import Filter from './components/Filter/Filter';
 
 function App() {
   return (
-    <>
-    <Header />
-    <Filter />
-    <Country />
-    </>
+    <Router>
+      <>
+        <Header />
+        <Filter />
+        <Routes>
+        <Route  path="/" element={<Countries />} />
+      
+        <Route path="/countries/:name" element={<Country />} />
+        </Routes>
+        
+      </>
+    </Router>
   )
 }
 

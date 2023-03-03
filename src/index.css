@@ -115,6 +115,37 @@ color: hsl(0, 0%, 100%);
     background-color: hsl(209, 23%, 22%);
     border: 2px solid hsl(209, 23%, 22%);
   }
+
+  .light-theme {
+    background-color: hsl(0, 0%, 98%);
+    color: hsl(200, 15%, 8%);
+
+  }
+
+
+  .form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 50px;
+  }
+  
+  .form input,
+  .form select {
+    background-color: hsl(209, 23%, 22%);
+    padding: 12px;
+    font-family: inherit;
+    border: none;
+    border-radius: 5px;
+    color: hsl(0, 0%, 100%);
+  }
+  
+  .form input::placeholder {
+    color: hsl(0, 0%, 100%);
+  }
+  
+  
   
   @media (min-width: 640px) {
     .grid {
