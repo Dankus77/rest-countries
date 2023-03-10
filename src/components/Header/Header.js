@@ -2,25 +2,16 @@ import React from 'react';
 
 const Header = () =>{
 
-const colorToggle = () =>{
-const bgToggle = document.querySelector('.fa-moon');
-const header = document.querySelector('.header');
-const input = document.querySelector('#search');
-const select = document.querySelector('select');
-const info = document.querySelectorAll('.info');
+const toggleTheme = () => {
+    const header = document.querySelector('.header');
+    const info = document.querySelector('.info');
 
-bgToggle.addEventListener('click', colorToggle);
-document.body.classList.toggle('light-theme');
-header.classList.toggle('light-theme');
-input.classList.toggle('light-theme');
-select.classList.toggle('light-theme'); 
+    info.forEach((list) => {
+        list.classList.toggle('light-theme')
+    })
 
-info.forEach((list) =>{
-    list.classList.toggle('light-theme');
-})
+    header.classList.toggle('light-theme');
 }
-
-
 
 return <div className="header">
     <div>
@@ -28,7 +19,9 @@ return <div className="header">
     </div>
     
     <div>
-    <i className="fas fa-moon" onClick={colorToggle}> Dark Mode</i>
+        <button className='moon-btn' onClick={toggleTheme}>
+        <i className="fas fa-moon"> Dark Mode</i>
+        </button>
     </div>
 
 </div>

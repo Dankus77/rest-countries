@@ -1,25 +1,41 @@
 import React from 'react';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import Country from './components/Countries/Country';
-import Countries from './components/Countries/Countries';
-import Header from './components/Header/Header';
-import Filter from './components/Filter/Filter';
+import './app.css';
+import PageHeader from './components/Header/PageHeader';
+import SearchFilter from './components/Filter/SearchFilter';
+import AllCountries from './components/Countries/AllCountries';
+import {Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
+import CountriesInfo from './components/Countries/CountriesInfo';
 
 function App() {
+const [darkMode, setDarkMode] = useState(false);
+
+const switchMode = () => {
+  setDarkMode((prevState) => !prevState)
+}
+
+
   return (
-    <Router>
-      <>
-        <Header />
-        <Filter />
+    
+      <div className={`app ${darkMode ? 'darkMode' : ''}`}>
+        
+        <PageHeader onClick={switchMode} darkMode={darkMode}/>
         <Routes>
-        <Route  path="/" element={<Countries />} />
-      
-        <Route path="/countries/:name" element={<Country />} />
+          <Route exact path='/' element={
+            < div className='app-body'>
+             <SearchFilter />
+             <div className='countries'>
+               <AllCountries darkMode={darkMode}/>
+             </div>
+             </div>
+          } />
+       <Route path='country-details' element={<CountriesInfo darkMode={darkMode} />} />
         </Routes>
         
-      </>
-    </Router>
+      </div>
+      
   )
 }
 
 export default App;
+
